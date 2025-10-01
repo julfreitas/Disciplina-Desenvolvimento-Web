@@ -4,37 +4,90 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 20px;
 }
+
 .resumo {
   max-width: 600px;
   padding: 30px;
   background: white;
-  img {
-    width: 120px;
-    border-radius: 50%;
-    border: 4px solid #667eea;
-  }
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  h1{
-    margin: 10px 0;
-    font-size: 24px;
-    color: #333;
+}
+
+.resumo img {
+  width: 120px;
+  border-radius: 50%;
+  border: 4px solid #667eea;
+}
+
+.resumo h1 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.resumo h2 {
+  border-bottom: 2px solid #667eea;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.resumo p {
+  color: #555;
+}
+
+.links-contato {
+  display: flex;
+  justify-content: center;
+  gap: 25px; 
+  margin-top: 10px;
+}
+
+.links-contato a {
+  text-decoration: none;
+  color: #667eea; 
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.links-contato a:hover {
+  color: #764ba2; 
+  transform: scale(1.1);
+}
+
+.resumo button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.resumo button:hover {
+  background: #764ba2;
+}
+
+@media print {
+  button {
+    display: none;
   }
-  h2{
-    border-bottom: 2px solid #667eea;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #333;
+  body {
+    background: white;
   }
-  p{
-    color: #555;
+  .resumo {
+    box-shadow: none;
   }
- 
 }
