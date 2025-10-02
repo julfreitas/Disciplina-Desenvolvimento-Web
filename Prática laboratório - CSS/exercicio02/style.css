@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.titulo-cardapio {
+  font-size: 1.2em;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.container-caipirinhas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item-caipirinha {
+  text-align: center;
+  width: 220px;
+}
+
+.item-caipirinha img {
+  border-radius: 5px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.item-caipirinha p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.item-caipirinha button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 14px;
+}
+
+.item-caipirinha button:hover {
+  background-color: #e0e0e0;
+}
+
+.cart-icon {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 1.8em;
+  color: #333;
+  text-decoration: none;
+}
+
+.cart-icon:hover {
+  color: #9bb616;
+  transform: scale(1.1);
+}
+
+.titulo-carrinho {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
