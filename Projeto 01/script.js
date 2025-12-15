@@ -2,24 +2,26 @@ const API_URL = 'http://localhost:3000';
 
 async function carregarProdutos() {
     const container = document.getElementById('lista-produtos');
-    if (!container) return; 
+    if (!container) return;
 
     try {
         const response = await fetch(`${API_URL}/produtos`);
         const produtos = await response.json();
 
-        container.innerHTML = ''; 
+        container.innerHTML = '';
 
         produtos.forEach(produto => {
-            
-            
             let caminhoImagem = produto.imagem;
-            if (window.location.pathname.includes('/pages/')) {
+            let linkProduto = `produto.html?id=${produto.id}`; 
+
+            if (!window.location.pathname.includes('/pages/')) {
+                linkProduto = `pages/produto.html?id=${produto.id}`;
+            } else {
                 caminhoImagem = '../' + produto.imagem;
             }
 
             const produtoHTML = `
-                <div class="pro">
+                <div class="pro" onclick="window.location.href='${linkProduto}'">
                     <img src="${caminhoImagem}" alt="${produto.nome}">
                     <div class="des">
                         <h5>${produto.nome}</h5>
@@ -32,7 +34,7 @@ async function carregarProdutos() {
                         </div>
                         <h4>R$${produto.preco.toFixed(2).replace('.', ',')}</h4>
                     </div>
-                    <a href="#" onclick="adicionarAoCarrinho(${produto.id}, '${produto.nome}', ${produto.preco}, '${produto.imagem}'); return false;">
+                    <a href="#" onclick="event.stopPropagation(); adicionarAoCarrinho(${produto.id}, '${produto.nome}', ${produto.preco}, '${produto.imagem}'); return false;">
                         <i class="fa-solid fa-cart-shopping cart"></i>
                     </a>
                 </div>
@@ -128,7 +130,40 @@ async function removerDoCarrinho(id) {
     }
 }
 
+async function carregarDetalhesProduto() {
+    const titulo = document.getElementById('detalhe-nome');
+    if (!titulo) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const idProduto = parseInt(params.get('id'));
+
+    try {
+        const response = await fetch(`${API_URL}/produtos`);
+        const produtos = await response.json();
+
+        const produto = produtos.find(p => p.id === idProduto);
+
+        if (produto) {
+            document.getElementById('detalhe-nome').innerText = produto.nome;
+            document.getElementById('detalhe-preco').innerText = `R$${produto.preco.toFixed(2).replace('.', ',')}`;
+            document.getElementById('detalhe-descricao').innerText = produto.descricao;
+            
+            document.getElementById('MainImg').src = '../' + produto.imagem;
+
+            const btn = document.getElementById('btn-add-carrinho');
+            const inputQtd = document.getElementById('quantidade-produto');
+            
+            btn.onclick = () => {
+                adicionarAoCarrinho(produto.id, produto.nome, produto.preco, produto.imagem);
+            };
+        }
+    } catch (error) {
+        console.error("Erro ao carregar detalhes:", error);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     carregarProdutos();
     carregarCarrinho();
+    carregarDetalhesProduto();
 });

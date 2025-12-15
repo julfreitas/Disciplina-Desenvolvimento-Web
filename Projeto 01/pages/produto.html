@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LF Artesanato</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/Projeto 01/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <section id="header">
@@ -13,7 +13,7 @@
 
         <div>
             <ul id="navbar">
-                <li><a href="/Projeto 01/index.html">Início</a></li>
+                <li><a href="../index.html">Início</a></li>
                 <li><a class="active" href="loja.html">Loja</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -28,41 +28,47 @@
 
     <section id="produto-detalhes" class="section-p1">
         <div class="img-prod-unica">
-            <img src="/Projeto 01/images/produtos/ecobag1.png" width="100%" id="MainImg" alt="">
+            <img src="../images/produtos/ecobag1.png" width="100%" id="MainImg" alt="">
    
             <div class="img-grupo">
                 <div class="img-col">
-                    <img src="/Projeto 01/images/produtos/image.png" width="100%" class="img-pequena" alt="">
+                    <img src="../images/produtos/image.png" width="100%" class="img-pequena" alt="">
                 </div>
                  <div class="img-col">
-                    <img src="/Projeto 01/images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
+                    <img src="../images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
                 </div>
                  <div class="img-col">
-                    <img src="/Projeto 01/images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
+                    <img src="../images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
                 </div>
                  <div class="img-col">
-                    <img src="/Projeto 01/images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
+                    <img src="../images/produtos/ecobag1.png" width="100%" class="img-pequena" alt="">
                 </div>
             </div>
         </div>
 
         <div class="detalhes-pro-unico">
-        <h6>Início / Ecobag</h6>
-        <h4>Ecobag Homem-Aranha</h4>
-        <h2>R$30,00</h2>
-        <select>
-            <option>Selecionar tamanho</option>
-            <option>P</option>
-            <option>M</option>
-            <option>G</option>
-            <option>GG</option>
-        </select>
-        <input type="number" value="1">
-        <button class="normal">Adicionar ao carrinho</button>
-        <h4>Detalhes do produto</h4>
-        <span>Ecobag feita de algodão cru, com estampa do Homem-Aranha. Ideal para compras sustentáveis e uso diário. 
-            Resistente e ecológica, perfeita para quem ama o universo dos super-heróis!</span>
-    </div>
+            <h6>Início / Ecobag</h6>
+            
+            <h4 id="detalhe-nome">Carregando...</h4>
+            
+            <h2 id="detalhe-preco">R$ 00,00</h2>
+            
+            <select>
+                <option>Selecionar tamanho</option>
+                <option>P</option>
+                <option>M</option>
+                <option>G</option>
+                <option>GG</option>
+            </select>
+            
+            <input type="number" value="1" id="quantidade-produto">
+            
+            <button class="normal" id="btn-add-carrinho">Adicionar ao carrinho</button>
+            
+            <h4>Detalhes do produto</h4>
+            
+            <span id="detalhe-descricao">Carregando detalhes...</span>
+        </div>
     </section>
 
      <section id="produto1" class="section-p1">
@@ -70,7 +76,7 @@
         <p>Ecobags</p>
         <div class="pro-container">
             <div class="pro">
-                <img src="/Projeto 01/images/produtos/ecobag1.png" alt="">
+                <img src="../images/produtos/ecobag1.png" alt="">
                 <div class="des">
                     <h5>Ecobag Homem-Aranha</h5>
                     <div class="estrela">
@@ -85,7 +91,7 @@
                 <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
             </div>
             <div class="pro">
-                <img src="/Projeto 01/images/produtos/ecobag2.png" alt="">
+                <img src="../images/produtos/ecobag2.png" alt="">
                 <div class="des">
                     <h5>Ecobag Homem-Aranha</h5>
                     <div class="estrela">
@@ -100,7 +106,7 @@
                 <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
             </div>
             <div class="pro">
-                <img src="/Projeto 01/images/produtos/ecobag3.png" alt="">
+                <img src="../images/produtos/ecobag3.png" alt="">
                 <div class="des">
                     <h5>Ecobag Homem-Aranha</h5>
                     <div class="estrela">
@@ -115,7 +121,7 @@
                 <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
             </div>
             <div class="pro">
-                <img src="/Projeto 01/images/produtos/ecobag4.png" alt="">
+                <img src="../images/produtos/ecobag4.png" alt="">
                 <div class="des">
                     <h5>Ecobag Homem-Aranha</h5>
                     <div class="estrela">
@@ -147,7 +153,7 @@
     <footer class="section-p1">
         <div class="col">
             <h3>LF Artesanato</h3>
-            <img class="logo" src="/Projeto 01/images/logo" alt="">
+            <!-- <img class="logo" src="../images/logo" alt=""> -->
             <h4>Contato</h4>
             <p><strong>Telefone: </strong>(88) 912345678</p>
             <p><strong>Horário: </strong>08:00 - 19:00</p>
@@ -182,7 +188,7 @@
         <div class="col pagamento">
             <h4>Pagamento</h4>
             <p>Pix</p>
-            <img src="/Projeto 01/images/pix.png" alt="pix">
+            <img src="../images/pix.png" alt="pix">
         </div>
         <div class="copyright">
             <p> &copy; 2025. JF</p>
@@ -207,6 +213,6 @@
             MainImg.src = smallimg[3].src;
         }
     </script>
-    <script src="/Projeto 01/script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
