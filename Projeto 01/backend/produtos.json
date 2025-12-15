@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "nome": "Ecobag Homem-Aranha",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag1.png",
+    "descricao": "Ecobag feita de algodão cru, estampa Homem-Aranha."
+  },
+  {
+    "id": 2,
+    "nome": "Ecobag Maria",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag2.png",
+    "descricao": "Ecobag religiosa Maria."
+  },
+  {
+    "id": 3,
+    "nome": "Ecobag Gato",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag3.png",
+    "descricao": "Para quem ama felinos."
+  },
+  {
+    "id": 4,
+    "nome": "Ecobag São Francisco",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag4.png",
+    "descricao": "Estampa de São Francisco de Assis."
+  },
+  {
+    "id": 5,
+    "nome": "Ecobag Stitch",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag5.png",
+    "descricao": "Estampa de São Francisco de Assis."
+  },
+  {
+    "id": 6,
+    "nome": "Ecobag Van-Gogh",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag6.png",
+    "descricao": "Estampa de São Francisco de Assis."
+  },
+  {
+    "id": 7,
+    "nome": "Ecobag Anavitoria",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag7.png",
+    "descricao": "Estampa de São Francisco de Assis."
+  },
+  {
+    "id": 8,
+    "nome": "Ecobag Snop",
+    "preco": 30.00,
+    "imagem": "images/produtos/ecobag8.png",
+    "descricao": "Estampa de São Francisco de Assis."
+  }
+  
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nome": "Ecobag Homem-Aranha",
+    "preco": 30,
+    "imagem": "images/produtos/ecobag1.png",
+    "quantidade": 1
+  },
+  {
+    "id": 3,
+    "nome": "Ecobag Gato",
+    "preco": 30,
+    "imagem": "images/produtos/ecobag3.png",
+    "quantidade": 1
+  }
+]
