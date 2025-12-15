@@ -6,12 +6,59 @@
     <link rel="stylesheet" href="/Prática laboratório - CSS/exercicio02/style.css">
     <title>Carrinho</title>
   </head>
+  
   <body>
+  <div class="carrinho-container">
+
     <p class="titulo-carrinho">Carrinho</p>
+
     <input type="text" placeholder="Digite o cupom de desconto">
     <button>Aplicar Cupom</button>
+
     <p>Total: R$ 0,00</p>
+
     <button>Finalizar pedido</button>
-    
-  </body>
+  </div>
+
+<script>
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  let total = parseFloat(localStorage.getItem("total")) || 0;
+
+  const container = document.querySelector(".carrinho-container");
+
+  carrinho.forEach(item => {
+    const p = document.createElement("p");
+    p.className = "item-carrinho";
+    p.textContent = item;
+    container.appendChild(p);
+  });
+
+  const totalParagrafo = document.querySelector("p:nth-of-type(2)");
+  totalParagrafo.textContent = "Total: R$ " + total.toFixed(2);
+
+  const botaoCupom = document.querySelector("button");
+  const inputCupom = document.querySelector("input");
+
+  botaoCupom.addEventListener("click", () => {
+    const cupomDigitado = inputCupom.value.trim();
+
+    if (cupomDigitado === "CAIPIDESCONTO") {
+      const totalComDesconto = total * 0.90;
+      totalParagrafo.textContent = "Total: R$ " + totalComDesconto.toFixed(2);
+      alert("10% de desconto.");
+    } else {
+      alert("Cupom não existe!");
+    }
+  });
+
+  const botaoFinalizar = document.querySelectorAll("button")[1];
+
+  botaoFinalizar.addEventListener("click", () => {
+    alert("Pedido realizado com sucesso!");
+    localStorage.removeItem("carrinho");
+    localStorage.removeItem("total");
+  });
+</script>
+</body>
+
 </html>
