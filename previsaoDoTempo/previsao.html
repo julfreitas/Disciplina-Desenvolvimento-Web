@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h2>Previsão do tempo</h2>
+        <div class="input-group">
+            <label for="cidade">Nome da Cidade:</label>
+            <input type="text" id="cidade" placeholder="Ex: Rio de Janeiro">
+        </div>
+
+        <button onclick="buscarPrevisao()">Ver Previsão</button>
+
+        <div id="resultado">
+            <p style="color: #888;"></p>
+        </div>
+    </div>
+
+    <script>
+        async function buscarPrevisao() {
+            const apiKey = '028de0e6dbe086beb2b759ce3d81c03c'; 
+
+            const cidade = document.getElementById('cidade').value.trim();
+            const resultadoDiv = document.getElementById('resultado');
+
+            if (!apiKey) {
+                alert("Erro: A chave de API não foi configurada no código.");
+                return;
+            }
+            if (!cidade) {
+                alert("Por favor, digite o nome da cidade.");
+                return;
+            }
+
+            resultadoDiv.innerHTML = "Buscando dados...";
+
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || "Erro na requisição");
+                }
+
+                const data = await response.json();
+
+                mostrarDados(data);
+
+            } catch (error) {
+                console.error("Erro:", error);
+                
+                let mensagemErro = "Ocorreu um erro.";
+                if (error.message.includes("city not found")) mensagemErro = "Cidade não encontrada.";
+                if (error.message.includes("Invalid API key")) mensagemErro = "Chave de API inválida.";
+
+                resultadoDiv.innerHTML = `<div class="erro">${mensagemErro}</div>`;
+            }
+        }
+
+        function mostrarDados(dados) {
+            const resultadoDiv = document.getElementById('resultado');
+            
+            const nome = dados.name;
+            const pais = dados.sys.country;
+            const temperatura = Math.round(dados.main.temp);
+            const sensacao = Math.round(dados.main.feels_like);
+            const descricao = dados.weather[0].description;
+            const umidade = dados.main.humidity;
+            const iconeCode = dados.weather[0].icon;
+            const iconeUrl = `https://openweathermap.org/img/wn/${iconeCode}@2x.png`;
+
+            resultadoDiv.innerHTML = `
+                <h3>${nome}, ${pais}</h3>
+                <img src="${iconeUrl}" alt="${descricao}">
+                <div class="temp-grande">${temperatura}°C</div>
+                <p style="text-transform: capitalize;">${descricao}</p>
+                <p><small>Sensação: ${sensacao}°C | Umidade: ${umidade}%</small></p>
+            `;
+        }
+    </script>
+</body>
+</html>
